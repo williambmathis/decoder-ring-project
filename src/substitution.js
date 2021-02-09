@@ -7,22 +7,22 @@ const substitutionModule = (function () {
   // you can add any code you want within this function scope
 
   function substitution(input, alphabet, encode = true) {
-    if(alphabet === undefined || alphabet.length != 26) {
-      console.log("im in the input validation")
+    if(alphabet === undefined || alphabet.length != 26) { //check to make sure that alphabet was entered and that there are 26 characters in it
+    
       return false;
     }
     
     for(let i = 0; i < alphabet.length; i++){
-      if(alphabet.includes(alphabet[i], i+1)) {
-        console.log(alphabet.includes(alphabet[i], i+ 1))
+      if(alphabet.includes(alphabet[i], i+1)) { //check to make sure that there no duplicate characters
+        
         return false;
       }
     }
-    input = input.toLowerCase();
+    input = input.toLowerCase(); //make our input lower case
     
 
-    if(encode === true) {
-    const ALPHAOBJECT = {
+    if(encode === true) { //check to see if we are encoding or decoding
+    const ALPHAOBJECT = { // declare an object to help with encoding
       'a': alphabet[0],
       'b': alphabet[1],
       'c': alphabet[2],
@@ -53,22 +53,22 @@ const substitutionModule = (function () {
 
     let tempChar;
     let tempStr = "";
-    for(let i = 0; i < input.length; i ++){
-      if(input[i] === " "){
+    for(let i = 0; i < input.length; i ++){ //loop through the input
+      if(input[i] === " "){ //add spaces if they are present
         tempStr += " ";
       }
       else{
-      tempChar = ALPHAOBJECT[input[i]];
+      tempChar = ALPHAOBJECT[input[i]]; //encode each character
       tempStr += tempChar;
       console.log(tempChar)
     }
   }
     return tempStr;
   }
-  else if(encode === false){
+  else if(encode === false){ // check to see if we are decoding
     
   
-    const ALPHAOBJECT = {}
+    const ALPHAOBJECT = {} //creating the object to assist with decoding
     ALPHAOBJECT[alphabet[0]] = 'a';
     ALPHAOBJECT[alphabet[1]] = 'b';
     ALPHAOBJECT[alphabet[2]] = 'c';
@@ -95,12 +95,12 @@ const substitutionModule = (function () {
     ALPHAOBJECT[alphabet[23]] = 'x';
     ALPHAOBJECT[alphabet[24]] = 'y';
     ALPHAOBJECT[alphabet[25]] = 'z';
-    //console.log(ALPHAOBJECT);
+    
     let tempChar;
     let tempStr = "";
-    //console.log(input);
-    for(let i = 0; i < input.length; i ++){
-      if(input[i] === " "){
+    
+    for(let i = 0; i < input.length; i ++){ //loop through the input
+      if(input[i] === " "){ //add a space if a space is present
         tempStr += " ";
       }
       else { 

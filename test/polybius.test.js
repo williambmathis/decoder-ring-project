@@ -10,7 +10,11 @@ describe("polybius function", () => {
     expect(actual).to.equal(expected);
     });
 
-
+    it("should return false if no input is given", () => {
+    const expected = false;
+    const actual = polybius();
+    expect(actual).to.equal(expected);
+        });
 
     it("should return the encoded value", () => {
     const input = "wow polybius is a cool name";
